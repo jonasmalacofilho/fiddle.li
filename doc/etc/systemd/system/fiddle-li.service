@@ -1,0 +1,15 @@
+[Unit]
+Description=Fiddle.li: aggreate all the most usefull fiddles
+After=network.target
+
+[Service]
+Type=simple
+PIDFile=/run/fiddle-li.pid
+ExecStart=/usr/bin/env nodejs /var/www/index.js
+TimeoutStopSec=1
+KillMode=mixed
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
