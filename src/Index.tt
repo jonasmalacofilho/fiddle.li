@@ -1,0 +1,23 @@
+(:import Data:)
+
+(:static function render(conf:Map<String, SupportedTarget>):)
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>fiddle.li: all the most usefull fiddles in a single address</title>
+	</head>
+	<body>
+	<div class="container">
+		<p>Welcome to <a href="fiddle.li">fiddle.li</a>!</p>
+		<p>This a single hub to all the most usefull fiddles.</p>
+		<p>Check out our supported fiddles bellow or <a href="https://github.com/jonasmalacofilho/fiddle.li">fork us on GitHub</a> to contribute with more fiddles, bug fixes or performance improvements</p>
+		(:var fiddles = [ for (k in conf.keys()) { k:k, f:conf[k] } ]:)
+		(:do fiddles.sort(function (a,b) return Reflect.compare(a.f.host, b.f.host)):)
+		(:for f in fiddles:)
+		<li><a href="http://(:f.k:).fiddle.li">(:f.k:).fiddle.li</a> (via (:f.f.providerName:))</li>
+		(:end:)
+	</div>
+	</body>
+</html>
+(:end:)
+

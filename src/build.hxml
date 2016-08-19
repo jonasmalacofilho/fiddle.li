@@ -1,5 +1,7 @@
 -js index.js
--main Index
+-main Server
 -lib hxnodejs
 -lib assertion
+-lib tink_template
+-cp .
 
